@@ -11,6 +11,7 @@ import { MENU_ITEMS } from './pages-menu';
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,
+  standalone: false,
 })
 export class PagesComponent {
 

@@ -12,6 +12,7 @@ import { NbWindowRef } from '@nebular/theme';
     </form>
   `,
   styleUrls: ['window-form.component.scss'],
+  standalone: false,
 })
 export class WindowFormComponent {
   constructor(public windowRef: NbWindowRef) {}

@@ -12,6 +12,7 @@ import {
   selector: 'ngx-toastr',
   styleUrls: ['./toastr.component.scss'],
   templateUrl: './toastr.component.html',
+  standalone: false
 })
 export class ToastrComponent {
   constructor(private toastrService: NbToastrService) {}

@@ -6,6 +6,7 @@ import { WindowFormComponent } from './window-form/window-form.component';
   selector: 'ngx-window',
   templateUrl: 'window.component.html',
   styleUrls: ['window.component.scss'],
+  standalone: false,
 })
 export class WindowComponent {
 

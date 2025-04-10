@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <router-outlet></router-outlet>
   `,
+  standalone: false,
 })
 
 export class ModalOverlaysComponent {

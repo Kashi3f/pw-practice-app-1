@@ -18,6 +18,7 @@ interface FSEntry {
   selector: 'ngx-tree-grid',
   templateUrl: './tree-grid.component.html',
   styleUrls: ['./tree-grid.component.scss'],
+  standalone: false,
 })
 export class TreeGridComponent {
   customColumn = 'name';
