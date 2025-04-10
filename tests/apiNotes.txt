@@ -1,0 +1,44 @@
+What is an API
+Kind of black box testing
+- Requesting different endpoints which returns an object
+- GET
+request specific data from API
+- POST/PUT
+Send data to a API to create/update a resource
+- DELETE
+Removes a specified resource
+
+API URL - Https URL to API. Usually called API End-point
+Headers - Usually it's Content-Type or Authorization token
+METHODS - GET, POST, PUT, DELETE
+Body - JSON object with requested data(for POST or PUT)
+
+***HTTP ressponse satus codes***
+
+Status code 2xx(201, 204, 205, ...) - Success
+Status code 3xx(300, 301, 302, ...) -  Redirection
+Status code 4xx(400, 401, 404, ...) - Client Error
+400 - Request was not recognized
+401 - Request was not authorized and you need to provide authorization token
+404 - URL simply doesn't exist
+Status code 5xx(500, 501, 502, ...) - Server Error
+
+***UI Automation***
+__Functional end-to-end testing__
+
+Playwright --> Web-browser(clent) --> API(server)
+           <--                    <--   
+
+This is called a functional intergration test
+
+Playwright --> Web-browser(clent) --> API(server)
+           <--                    <--   
+                       --> Playwright Mock
+                       <-- 
+
+This is called mocking of the API for validation, this approach allows you to mock the server failure and allows you to view the status code.
+
+Playwright --> API server
+           <-- 
+Direct API calls from Playwright to the server. Very useful for a headless authorization when you don't need to use login and password screen everytime to login into application using the API call
+You can directly call the API server, get API token, authorize your browser and then perform all the operations inside the browser.

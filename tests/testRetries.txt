@@ -1,0 +1,39 @@
+**Retry OFF**
+
+Worker is initiated and palywright runs the test within this worker. Run tests in order by number if the selected test passes.
+Worker is a new instance of a browser running in incognito mode. It's a new session that begins.
+
+**PASS**            **FAIL**
+Worker #1           Worker #1       
+Test 1 - PASS       Test 1 - PASS
+Test 2 - PASS       Test 2 - FAIL
+Test 3 - PASS
+
+If one test fails in Worker 1, playwright creates a new instance(Worker #2) and executes test 3 in a fresh browser but only if retry is off.
+
+**Retry ON**
+
+If Test 2 fails in the instance of worker 1, playwright creates a second worker and retries the execution of test 2 in the new instance.
+
+Worker #1
+Test 1 - PASS
+Test 2 - FAIL
+
+Worker #2
+Test 2 - PASS
+Test 3 - PASS
+
+In the playwright.config.ts you can set the amount of retries on your local device on retries: proccess.env.CI ? 2 : 1, also, fullyParallel: false, tests will be executed 1 by 1 in only 1 worker.
+In your test.describe you can set how many times the tests should be executed with this.
+test.describe.configure({retries: 2})
+
+If you want to run a precondition or clean the database before the second try, before each test runs you can use:
+
+test('example test', async({page}, testInfo) => {
+    if(testInfo.retry){ 
+        //do something
+    }
+})
+
+you can clean or clear the database and also set the run timenof each test.
+
